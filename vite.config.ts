@@ -11,6 +11,15 @@ export default defineConfig(() => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'vendor': ['react', 'react-dom', 'framer-motion', 'html2canvas']
+            }
+          }
+        }
       }
     };
 });
