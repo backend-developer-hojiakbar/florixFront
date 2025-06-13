@@ -1,0 +1,8 @@
+{
+  "name": "O'simlik Tashxis Tizimi: Kasalliklar va Zararkunandalar",
+  "description": "O'simliklarning sog'ligini, kasalliklarini yoki zararkunandalar bilan zararlanganligini aniqlash uchun sun'iy intellektga asoslangan veb-ilova. Foydalanuvchi o'simlik rasmini yuklaydi, tizim uni tahlil qiladi va kasalliklar hamda zararkunandalarga qarshi kurashish bo'yicha tavsiyalar beradi.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "prompt": ""
+}
