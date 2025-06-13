@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "webpack serve",
-    "build": "npm run tsc && webpack",
+    "build": "npm run tsc && node --experimental-modules ./node_modules/.bin/webpack",
     "tsc": "tsc"
   },
   "dependencies": {
