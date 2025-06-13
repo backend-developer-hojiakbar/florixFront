@@ -51,7 +51,7 @@ export const analyzePlantImage = async (files: File[]): Promise<PlantDiagnosis |
       }
     });
     
-    let diagnosis = parseGeminiJsonResponse<PlantDiagnosis>(response.text);
+    let diagnosis = parseGeminiJsonResponse<PlantDiagnosis>(response.text ?? "");
     if (!diagnosis) {
       console.error("Failed to parse JSON response from Gemini:", response.text);
       return {
@@ -59,7 +59,7 @@ export const analyzePlantImage = async (files: File[]): Promise<PlantDiagnosis |
           observed_symptoms_uz: "Tahlil natijasini qayta ishlashda xatolik yuz berdi (JSON formatda emas).",
           probable_causes_uz: "Ma'lumot yo'q.",
           severity_assessment_uz: "Baholanmadi.",
-          description_uz: "Gemini javobi: " + response.text.substring(0, 200) + "...",
+          description_uz: "Gemini javobi: " + (response.text ?? "").substring(0, 200) + "...",
           confidence_score: 0,
           recommendations_uz: {
             preventive_measures_uz: [],

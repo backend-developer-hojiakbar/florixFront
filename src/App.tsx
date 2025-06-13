@@ -123,7 +123,12 @@ const App: React.FC = () => {
         }
 
         if (diagnosis.diagnosis_uz.toLowerCase() === "xatolik" || diagnosis.diagnosis_uz.toLowerCase() === "rasmlar mos kelmadi") {
-            setState(prev => ({ ...prev, analysisResult: diagnosis, isLoadingImageAnalysis: false, error: diagnosis.diagnosis_uz.toLowerCase() === "xatolik" ? diagnosis.description_uz : null }));
+            setState(prev => ({ 
+              ...prev, 
+              analysisResult: diagnosis, 
+              isLoadingImageAnalysis: false, 
+              error: diagnosis?.diagnosis_uz?.toLowerCase() === "xatolik" ? diagnosis?.description_uz : null 
+            }));
             return;
         }
 

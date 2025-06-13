@@ -61,10 +61,10 @@ const DiagnosisResult: React.FC<DiagnosisResultProps> = ({ diagnosis, imagePrevi
   const isPestIdentified = pestInfo?.is_pest_identified_uz === true && pestInfo?.pest_name_uz;
   
   const pestControlRecs = pestInfo?.control_recommendations_uz;
-  const hasPreventivePest = pestControlRecs?.preventive_measures_uz?.length > 0;
-  const hasBiologicalPest = pestControlRecs?.biological_control_uz?.length > 0;
-  const hasCulturalPest = pestControlRecs?.cultural_control_uz?.length > 0;
-  const hasChemicalPest = pestControlRecs?.chemical_treatments_uz?.length > 0;
+  const hasPreventivePest = pestControlRecs?.preventive_measures_uz?.length ?? 0 > 0;
+  const hasBiologicalPest = pestControlRecs?.biological_control_uz?.length ?? 0 > 0;
+  const hasCulturalPest = pestControlRecs?.cultural_control_uz?.length ?? 0 > 0;
+  const hasChemicalPest = pestControlRecs?.chemical_treatments_uz?.length ?? 0 > 0;
   const hasAnyPestControlRecommendations = hasPreventivePest || hasBiologicalPest || hasCulturalPest || hasChemicalPest;
 
   // Sahifa balandligi va y koordinatasini boshqarish uchun yordamchi funksiya
