@@ -8,8 +8,12 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node --experimental-modules --loader ts-node/esm ./node_modules/vite/bin/vite.js build",
+    "build": "npm run tsc && vite build",
+    "tsc": "tsc",
     "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   },
   "dependencies": {
     "@google/genai": "^1.0.1",
