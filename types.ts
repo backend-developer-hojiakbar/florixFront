@@ -49,6 +49,16 @@ export interface ChatMessage {
 
 export type ImageSourceType = 'gallery' | 'camera';
 
+export interface Advertisement {
+  id: number;
+  title: string;
+  media: string;
+  created_at: string;
+  expires_at: string;
+  is_active: boolean;
+  url: string;
+}
+
 export interface AppState {
   uploadedImageFiles: File[];
   uploadedImagePreviews: string[];

@@ -1,17 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import type { Advertisement } from '../types';
 
 // Interfeys yangi ma'lumot formatiga moslashtirildi
 interface AdvertisementProps {
-  ad: {
-    id: number;
-    title: string;
-    media: string; // media1 va media2 o'rniga yagona 'media' maydoni
-    created_at: string;
-    expires_at: string;
-    is_active: boolean;
-    url: string;
-  } | null;
+  ad: Advertisement | null;
 }
 
 const Advertisement: React.FC<AdvertisementProps> = ({ ad }) => {
@@ -32,7 +25,23 @@ const Advertisement: React.FC<AdvertisementProps> = ({ ad }) => {
 
   // Rasmning to'liq URL manzilini yaratamiz
   // Backend'dan "/media/..." kabi yo'l keladi, biz uning boshiga server manzilini qo'shamiz
-  const imageUrl = `http://api.florix.uz${ad.media}`;
+  // Rasmning to'liq URL manzilini yaratamiz
+  // Backend'dan "/media/..." kabi yo'l keladi, biz uning boshiga server manzilini qo'shamiz
+  // Agar rasm mavjud bo'lmasa, default rasmni qaytarib beramiz
+  const imageUrl = ad.media ? `http://api.florix.uz${ad.media}` : 'https://via.placeholder.com/300x200?text=No+Image';
+
+  // Rasm yuklanishini tekshirish
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleImageError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
 
   return (
     <motion.div
