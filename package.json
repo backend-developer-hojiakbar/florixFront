@@ -7,8 +7,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev": "esbuild src/index.tsx --bundle --outdir=dist --loader:.tsx=tsx --loader:.ts=ts --loader:.jsx=jsx --loader:.js=js",
-    "build": "npm run tsc && esbuild src/index.tsx --bundle --outdir=dist --loader:.tsx=tsx --loader:.ts=ts --loader:.jsx=jsx --loader:.js=js --minify",
+    "dev": "npm run tsc && esbuild src/index.tsx --bundle --outdir=dist --loader:.tsx=tsx --loader:.ts=ts --loader:.jsx=jsx --loader:.js=js --loader:.png=file --loader:.jpg=file --loader:.jpeg=file --loader:.svg=file",
+    "build": "npm run tsc && esbuild src/index.tsx --bundle --outdir=dist --loader:.tsx=tsx --loader:.ts=ts --loader:.jsx=jsx --loader:.js=js --loader:.png=file --loader:.jpg=file --loader:.jpeg=file --loader:.svg=file --minify",
     "tsc": "tsc"
   },
   "dependencies": {
